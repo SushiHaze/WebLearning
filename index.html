@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squadron</title>
+    <link rel="stylesheet" href="ui.css" />
+    <script src="./script.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <div class="topnavLeft">
+      <a class="topnav-brand" href="/">
+        <img src="Squadron.png" alt="logo" width="120" />
+      </a>
+      <a class="active" href="#aircrafts">Air</a>
+      <a href="#about">About</a>
+
+      <div class="topnavRight">
+        <a href="#account">Account</a>
+        <form>
+          <label for="search"></label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="         Search"
+            autofocus
+          />
+        </form>
+      </div>
+    </div>
+    <div class="container my-5">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="col">
+          <div class="card">
+            <img src="cards/f18.jpg" class="card-img-top" alt="HornetPicture"
+            style="width:100%>
+            <div class="cardBody">
+              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
+              <p>INFO</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="cards/f18.jpg" alt="HornetPicture" />
+            <div class="cardBody">
+              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
+              <p>INFO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

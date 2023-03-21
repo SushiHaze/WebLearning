@@ -1,0 +1,61 @@
+body {
+  color: #e4e4e4;
+  background-color: #222222;
+  text-decoration-color: #f4f4f4;
+}
+.topnavLeft {
+  background-color: #222222;
+  overflow: hidden;
+  position: relative;
+}
+.topnavLeft-brand {
+  float: left;
+}
+.topnavLeft a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavLeft a:hover {
+  color: rgb(161, 161, 161);
+}
+.topnavLeft a.active {
+  background-color: #4c8dfe;
+  color: white;
+}
+.topnavRight {
+  background-color: #222222;
+  overflow: hidden;
+  position: relative;
+}
+.topnavRight a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  float: right;
+}
+.topnavRight a:hover {
+  color: rgb(161, 161, 161);
+}
+.topnavRight form {
+  position: absolute;
+  right: 5em;
+  top: 1em;
+}
+#search {
+  color: #f4f4f4;
+  background-color: #222222;
+  border-color: #222222;
+  border-radius: 4%;
+  border-style: solid;
+  width: 8em;
+}
+.card {
+  max-width: 20%;
+}
