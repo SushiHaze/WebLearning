@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Squadron</title>
+    <link rel="stylesheet" href="ui.css" />
+    <script src="./script.js"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="logo/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="logo/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="logo/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="topnav">
+        <a class="topnav-brand" href="/">
+          <img src="/sources/Squadron.png" alt="logo" width="120" />
+        </a>
+        <a class href="index.html">Air</a>
+        <a class="active" href="about.html">About</a>
+        <div class="account">
+          <button
+            onclick="document.getElementById('id01').style.display='block'"
+            style="width: auto"
+          >
+            Account
+          </button>
+
+          <div id="id01" class="modal">
+            <form class="modal-content animate" action="/action_page.php">
+              <div class="imgcontainer">
+                <span
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="close"
+                  title="Close Modal"
+                  >×</span
+                >
+                <img src="img_avatar2.png" alt="Avatar" class="avatar" />
+              </div>
+
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  name="uname"
+                  required
+                />
+
+                <label for="psw"><b>Password</b></label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" />
+                  Remember me
+                </label>
+              </div>
+
+              <div class="container" style="background-color: #f1f1f1">
+                <button
+                  type="button"
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="cancelbtn"
+                >
+                  Cancel
+                </button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="aboutMe">
+        <img src="sources/THATSMEEE.jpg" alt="meImg" width="500" />
+        <h1>Sushi Haze</h1>
+        <p>About Squadron</p>
+        <button>Discord</button>
+        <button>Telegram</button>
+      </div>
+      <footer class="footer">
+        <p>
+          В соответствии с действующим законодательством Российской Федерации
+          владелец сайта - отказывается от каких-либо заверений и гарантий,
+          предоставление которых может иным образом подразумеваться, и
+          отказывается от ответственности в отношении вышеуказанного Сайта, его
+          содержимого и их использования. Ни при каких обстоятельствах владелец
+          Сайта не будет нести ответственности ни перед какой стороной за
+          какой-либо прямой, непрямой, особый или иной косвенный ущерб в
+          результате любого использования информации на этом Сайте или на любом
+          другом сайте, на который имеется гиперссылка с нашего сайта,
+          возникновение зависимости, снижения продуктивности, увольнения или
+          прерывания трудовой активности, а равно и отчисления из учебных
+          учреждений, за любую упущенную выгоду, приостановку хозяйственной
+          деятельности, потерю программ или данных в Ваших информационных
+          системах или иным образом, возникшие в связи с доступом,
+          использованием или невозможностью использования Сайта, Содержимого или
+          какого-либо связанного интернет-сайта, или неработоспособностью,
+          ошибкой, упущением, перебоем, дефектом, простоем в работе или
+          задержкой в передаче, компьютерным вирусом или системным сбоем, даже
+          если он будет явно поставлен в известность о возможности такого
+          ущерба. Пользователь соглашается с тем, что нормы и законы РФ о защите
+          прав потребителей не могут быть применимы к использованию им Сайта,
+          поскольку сайт не оказывает возмездных услуг. Пользователь настоящим
+          прочтением документа соглашается с тем, что все возможные споры будут
+          разрешаться только по нормам российского гражданского права. Используя
+          Сайт - Вы выражаете свое согласие с настоящим «Отказом от
+          ответственности» и установленными владельцем Сайта Правилами и
+          принимаете всю ответственность, которая может быть на Вас возложена
+          действующим российским законодательством РФ.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
