@@ -3,59 +3,244 @@ body {
   background-color: #222222;
   text-decoration-color: #f4f4f4;
 }
-.topnavLeft {
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.topnav {
   background-color: #222222;
   overflow: hidden;
   position: relative;
+  align-items: center;
+  height: 55px;
 }
-.topnavLeft-brand {
+.topnavLeft {
   float: left;
-}
-.topnavLeft a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnavLeft a:hover {
-  color: rgb(161, 161, 161);
-}
-.topnavLeft a.active {
-  background-color: #4c8dfe;
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .topnavRight {
-  background-color: #222222;
-  overflow: hidden;
-  position: relative;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.topnavRight a {
+.topnav-brand {
+  margin-right: 70px;
+  margin-bottom: 15px;
+}
+.topnav a {
+  width: 50px;
+  height: 20px;
+  float: left;
   color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+  padding: 13px 35px;
   text-decoration: none;
   font-size: 17px;
-  float: right;
+  text-align: center;
 }
-.topnavRight a:hover {
+
+.topnav a:hover {
   color: rgb(161, 161, 161);
 }
-.topnavRight form {
-  position: absolute;
-  right: 5em;
-  top: 1em;
+.topnav a.active {
+  background-color: #4c8dfec2;
+  color: white;
 }
-#search {
-  color: #f4f4f4;
+.search input {
+  width: 8vh;
+  padding: 13px 35px;
+  float: left;
+  border: #222222;
   background-color: #222222;
-  border-color: #222222;
-  border-radius: 4%;
-  border-style: solid;
-  width: 8em;
+  color: #e4e4e4;
+  position: relative;
+  margin: 0px;
+  outline: none;
+}
+
+.row {
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.row2 {
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 .card {
-  max-width: 20%;
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-position-x: center;
+  float: left;
+  margin-right: 12px;
+  border: 1px dotted red;
+}
+.card img {
+  border-radius: 6%;
+}
+.footer {
+  padding: 0px 0px 30px 0px;
+  background-color: #1a1a1a0c;
+  height: 10px;
+  font-size: 6px;
+  display: flex;
+  justify-content: center;
+}
+.footer {
+  margin-top: auto;
+}
+.aboutMe {
+  width: 50%; /* Ширина блока */
+  margin: auto;
+}
+.aboutMe img {
+  border-radius: 50%;
+}
+/* AUTH */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Full-width input fields */
+.account input[type="text"],
+.account input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.button.firstaccbtn {
+  width: 50px;
+  height: 20px;
+  font-size: 17px;
+  text-align: center;
+  padding: 15px 70px;
+}
+.account button {
+  font-size: 17px;
+  background-color: #222222;
+  color: white;
+  padding: 13px 35px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  color: rgb(161, 161, 161);
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #222222;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }
