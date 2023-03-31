@@ -30,12 +30,13 @@
     <div class="page">
       <div class="topnav">
         <a class="topnav-brand" href="/">
-          <img src="/sources/Squadron.png" alt="logo" width="120" />
+          <img src="sources/Squadron.png" alt="logo" width="120" />
         </a>
-        <a class href="index.html">Air</a>
+        <a href="index.html">Air</a>
         <a class="active" href="about.html">About</a>
         <div class="account">
           <button
+            class="firstaccbtn"
             onclick="document.getElementById('id01').style.display='block'"
             style="width: auto"
           >
@@ -51,7 +52,7 @@
                   title="Close Modal"
                   >×</span
                 >
-                <img src="img_avatar2.png" alt="Avatar" class="avatar" />
+                <img src="sources/Squadron.png" alt="Avatar" class="avatar" />
               </div>
 
               <div class="container">
@@ -78,7 +79,7 @@
                 </label>
               </div>
 
-              <div class="container" style="background-color: #f1f1f1">
+              <div class="container">
                 <button
                   type="button"
                   onclick="document.getElementById('id01').style.display='none'"
@@ -86,18 +87,23 @@
                 >
                   Cancel
                 </button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
               </div>
             </form>
           </div>
         </div>
       </div>
       <div class="aboutMe">
-        <img src="sources/THATSMEEE.jpg" alt="meImg" width="500" />
+        <img src="sources/THATSMEEE.jpg" alt="meImg" width="300px" />
         <h1>Sushi Haze</h1>
-        <p>About Squadron</p>
-        <button>Discord</button>
-        <button>Telegram</button>
+        <p>This is a test project for stack learning: html, css, js.</p>
+        <div class="aMbuttonContainer">
+          <form action="https://discord.gg/Kuum6Ntz" target="_blank">
+            <button>Discord</button>
+          </form>
+          <form action="tg://resolve?domain=Sushi Haze" target="_blank">
+            <button>Telegram</button>
+          </form>
+        </div>
       </div>
       <footer class="footer">
         <p>

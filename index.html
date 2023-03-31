@@ -29,301 +29,221 @@
   <body>
     <div class="page">
       <div class="topnav">
-        <div class="topnavLeft">
-          <a class="topnav-brand" href="/">
-            <img src="sources/Squadron.png" alt="logo" width="120" />
-          </a>
-          <a class="active" href="index.html">Air</a>
-          <a href="about.html">About</a>
+        <a class="topnav-brand" href="/">
+          <img src="sources/Squadron.png" alt="logo" width="120" />
+        </a>
+        <a class="active" href="index.html">Air</a>
+        <a href="about.html">About</a>
+
+        <div class="search">
+          <input type="text" id="search" placeholder="Search..." />
+          <button id="btnFind" onclick="search()">Go</button>
         </div>
-        <div class="topnavRight">
-          <div class="search">
-            <form>
-              <label for="search"></label>
-              <input
-                type="text"
-                id="search"
-                name="search"
-                placeholder="Search"
-                autofocus
-              />
+        <div class="account">
+          <button
+            class="firstaccbtn"
+            onclick="document.getElementById('id01').style.display='block'"
+            style="width: auto"
+          >
+            Account
+          </button>
+
+          <div id="id01" class="modal">
+            <form class="modal-content animate" action="/action_page.php">
+              <div class="imgcontainer">
+                <span
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="close"
+                  title="Close Modal"
+                  >×</span
+                >
+                <img src="sources/Squadron.png" alt="Avatar" class="avatar" />
+              </div>
+
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  name="uname"
+                  required
+                />
+
+                <label for="psw"><b>Password</b></label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" />
+                  Remember me
+                </label>
+              </div>
+
+              <div class="container">
+                <button
+                  type="button"
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="cancelbtn"
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
-          </div>
-          <div class="account">
-            <button
-              class="firstaccbtn"
-              onclick="document.getElementById('id01').style.display='block'"
-              style="width: auto"
-            >
-              Account
-            </button>
-
-            <div id="id01" class="modal">
-              <form class="modal-content animate" action="/action_page.php">
-                <div class="imgcontainer">
-                  <span
-                    onclick="document.getElementById('id01').style.display='none'"
-                    class="close"
-                    title="Close Modal"
-                    >×</span
-                  >
-                  <img src="img_avatar2.png" alt="Avatar" class="avatar" />
-                </div>
-
-                <div class="container">
-                  <label for="uname"><b>Username</b></label>
-                  <input
-                    type="text"
-                    placeholder="Enter Username"
-                    name="uname"
-                    required
-                  />
-
-                  <label for="psw"><b>Password</b></label>
-                  <input
-                    type="password"
-                    placeholder="Enter Password"
-                    name="psw"
-                    required
-                  />
-
-                  <button type="submit">Login</button>
-                  <label>
-                    <input type="checkbox" checked="checked" name="remember" />
-                    Remember me
-                  </label>
-                </div>
-
-                <div class="container" style="background-color: #f1f1f1">
-                  <button
-                    type="button"
-                    onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn"
-                  >
-                    Cancel
-                  </button>
-                  <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </div>
-      <div class="cards-wrapper">
-        <div class="row">
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+      <div class="grid">
+        <div class="gridBody">
+          <div id="card1" class="gridItem">
+            <a href="aircrafts/F18.html" class="card-link">
+              <img class="cardImg" src="cards/f18.jpg" alt="aircraftImg" />
+              <h3>F/A-18 Hornet</h3>
+              <p class="mainInfoCard">
+                The F/A-18 Hornet is a supersonic, all-weather, carrier-capable,
+                multirole combat jet.
+              </p>
+              <p class="designedBy">
+                Designed by McDonnell Douglas and Northrop
+                <button id="add1" class="button exclude">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card2" class="gridItem">
+            <a href="aircrafts/F15.html" class="card-link">
+              <img class="cardImg" src="cards/f15.png" alt="aircraftImg" />
+              <h3>F-15 Eagle</h3>
+              <p class="mainInfoCard">
+                The F-15 Eagle is a supersonic, all-weather, multirole fighter
+                designed for ground and air combat
+              </p>
+              <p class="designedBy">
+                Designed by McDonnell Douglas
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card3" class="gridItem">
+            <a href="aircrafts/F16.html" class="card-link">
+              <img class="cardImg" src="cards/f16.jpg" alt="aircraftImg" />
+              <h3>F-16 Fighting Falcon</h3>
+              <p class="mainInfoCard">
+                The F-16 Fighting Falcon is a multirole fighter designed for
+                air-to-air and air-to-ground combat
+              </p>
+              <p class="designedBy">
+                Designed by General Dynamics
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card4" class="gridItem">
+            <a href="aircrafts/F14.html" class="card-link">
+              <img class="cardImg" src="cards/f14.jpg" alt="aircraftImg" />
+              <h3>F-14 Tomcat</h3>
+              <p class="mainInfoCard">
+                The F-14B Tomcat is a twin-engine, supersonic, carrier-based
+                fighter designed for air superiority missions
+              </p>
+              <p class="designedBy">
+                Designed by Grumman Aerospace Corporation
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card5" class="gridItem">
+            <a href="aircrafts/F22.html" class="card-link">
+              <img class="cardImg" src="cards/f22.png" alt="aircraftImg" />
+              <h3>F-22 Raptor</h3>
+              <p class="mainInfoCard">
+                The F-22 Raptor is a fifth-generation, twin-engine, stealth
+                tactical fighter designed for air superiority missions
+              </p>
+              <p class="designedBy">
+                Designed by Lockheed Martin
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-        </div>
-        <div class="row2">
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card6" class="gridItem">
+            <a href="aircrafts/F4.html" class="card-link">
+              <img class="cardImg" src="cards/f4.jpg" alt="aircraftImg" />
+              <h3>F-4 Phantom II</h3>
+              <p class="mainInfoCard">
+                The F-4 Phantom II is a twin-engine, supersonic, all-weather,
+                long-range fighter-bomber designed for air-to-air and
+                air-to-ground combat
+              </p>
+              <p class="designedBy">
+                Designed by McDonnell Aircraft
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card7" class="gridItem">
+            <a href="aircrafts/MIG29.html" class="card-link">
+              <img class="cardImg" src="cards/mig29.jpg" alt="aircraftImg" />
+              <h3>MiG-29 Fulcrum</h3>
+              <p class="mainInfoCard">
+                The MiG-29 Fulcrum is a twin-engine, supersonic, multirole
+                fighter designed for air-to-air and air-to-ground combat
+              </p>
+              <p class="designedBy">
+                Designed by Mikoyan
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card8" class="gridItem">
+            <a href="aircrafts/SU27.html" class="card-link">
+              <img class="cardImg" src="cards/su27.jpg" alt="aircraftImg" />
+              <h3>Su-27 Flanker</h3>
+              <p class="mainInfoCard">
+                The Su-27 Flanker is a twin-engine, supersonic, air superiority
+                fighter designed for both long and short-range combat
+              </p>
+              <p class="designedBy">
+                Designed by Sukhoi
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card9" class="gridItem">
+            <a href="aircrafts/RAFFALE.html" class="card-link">
+              <img class="cardImg" src="cards/raffale.jpg" alt="aircraftImg" />
+              <h3>Dassault Rafale</h3>
+              <p class="mainInfoCard">
+                The Dassault Rafale is a twin-engine, canard delta-wing,
+                multirole fighter designed for air-to-air and air-to-ground
+                combat
+              </p>
+              <p class="designedBy">
+                Designed by Dassault Aviation
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="/cards/f18.jpg"
-              class="card-img-top"
-              alt="HornetPicture"
-              width="300px"
-            />
-            <div class="cardBody">
-              <h4><b>McDonnell Douglas F/A-18 Hornet</b></h4>
-              <p>INFO</p>
-              <a href="aircrafts/f18.html">show more info</a>
-              <button>add to cart</button>
-            </div>
+          <div id="card10" class="gridItem">
+            <a href="aircrafts/EUROFIGHTER.html" class="card-link">
+              <img
+                class="cardImg"
+                src="cards/eurofighter.png"
+                alt="aircraftImg"
+              />
+              <h3>Eurofighter Typhoon</h3>
+              <p class="mainInfoCard">
+                The Eurofighter Typhoon is a twin-engine, delta-wing, multirole
+                fighter designed for air superiority and ground attack missions
+              </p>
+              <p class="designedBy">
+                Designed by Eurofighter GmbH
+                <button class="button">Add</button>
+              </p>
+            </a>
           </div>
         </div>
       </div>
