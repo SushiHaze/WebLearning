@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Squadron</title>
     <link rel="stylesheet" href="ui.css" />
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -24,78 +24,82 @@
       sizes="16x16"
       href="logo/favicon-16x16.png"
     />
-    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <div class="page">
       <div class="topnav">
-        <a class="topnav-brand" href="/">
-          <img src="sources/Squadron.png" alt="logo" width="120" />
-        </a>
-        <a class="active" href="index.html">Air</a>
-        <a href="about.html">About</a>
+        <div class="topnavL">
+          <a class="topnav-brand" href="/">
+            <img src="sources/Squadron.png" alt="logo" />
+          </a>
 
-        <div class="search">
-          <input type="text" id="search" placeholder="Search..." />
-          <button id="btnFind" onclick="search()">Go</button>
+          <a class="active" href="index.html">Air</a>
+          <a href="about.html">About</a>
         </div>
-        <div class="account">
-          <button
-            class="firstaccbtn"
-            onclick="document.getElementById('id01').style.display='block'"
-            style="width: auto"
-          >
-            Account
-          </button>
+        <div class="topnavR">
+          <div class="search">
+            <input type="text" id="search" placeholder="Search..." />
+            <button id="btnFind" onclick="search()">Go</button>
+          </div>
+          <div class="account">
+            <button
+              class="firstaccbtn"
+              onclick="document.getElementById('id01').style.display='block'"
+              style="width: auto"
+            >
+              Account
+            </button>
 
-          <div id="id01" class="modal">
-            <form class="modal-content animate" action="/action_page.php">
-              <div class="imgcontainer">
-                <span
-                  onclick="document.getElementById('id01').style.display='none'"
-                  class="close"
-                  title="Close Modal"
-                  >×</span
-                >
-                <img src="sources/Squadron.png" alt="Avatar" class="avatar" />
-              </div>
+            <div id="id01" class="modal">
+              <form class="modal-content animate" action="auth.js" method="GET">
+                <div class="imgcontainer">
+                  <span
+                    onclick="document.getElementById('id01').style.display='none'"
+                    class="close"
+                    title="Close Modal"
+                    >×</span
+                  >
+                  <img src="sources/Squadron.png" alt="Avatar" class="avatar" />
+                </div>
 
-              <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input
-                  type="text"
-                  placeholder="Enter Username"
-                  name="uname"
-                  required
-                />
+                <div class="container">
+                  <label for="uname"><b>Username</b></label>
+                  <input
+                    type="text"
+                    placeholder="Enter Username"
+                    name="uname"
+                    required
+                  />
 
-                <label for="psw"><b>Password</b></label>
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  name="psw"
-                  required
-                />
+                  <label for="psw"><b>Password</b></label>
+                  <input
+                    type="password"
+                    placeholder="Enter Password"
+                    name="psw"
+                    required
+                  />
 
-                <button type="submit">Login</button>
-                <label>
-                  <input type="checkbox" checked="checked" name="remember" />
-                  Remember me
-                </label>
-              </div>
+                  <button type="submit">Login</button>
+                  <label>
+                    <input type="checkbox" checked="checked" name="remember" />
+                    Remember me
+                  </label>
+                </div>
 
-              <div class="container">
-                <button
-                  type="button"
-                  onclick="document.getElementById('id01').style.display='none'"
-                  class="cancelbtn"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+                <div class="container">
+                  <button
+                    type="button"
+                    onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
+        <script src="auth.js"></script>
       </div>
       <div class="grid">
         <div class="gridBody">

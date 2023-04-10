@@ -3,6 +3,9 @@ body {
   background-color: #222222;
   text-decoration-color: #f4f4f4;
 }
+* {
+  font-family: Arial, Roboto;
+}
 .page {
   overflow: hidden;
   display: flex;
@@ -16,30 +19,39 @@ body {
   background-color: #222222;
   overflow: hidden;
   position: relative;
-  height: 55px;
+  width: 100%;
+  height: 65px;
 }
-
-.topnav-brand {
-  margin-right: 50px;
-  margin-bottom: 0px;
-  order: 1;
+.topnavL {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+.topnavR {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .topnav a {
   color: #f2f2f2;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 23px;
   text-align: center;
   order: 2;
+  margin-left: 50px;
 }
-
+.topnav-brand {
+  order: 1;
+}
+.topnav-brand img {
+  width: 200px;
+}
 .topnav a:hover {
   color: rgb(161, 161, 161);
 }
 .topnav a.active {
   color: #7496f3;
-}
-.search {
-  order: 3;
 }
 .search input {
   float: left;
@@ -48,7 +60,8 @@ body {
   color: #e4e4e4;
   outline: none;
   text-align: center;
-  width: 50px;
+  width: 80px;
+  font-size: 20px;
 }
 button img {
   width: 15px;
@@ -60,31 +73,33 @@ button img {
   border-color: #222222;
   border: #222222;
 }
-.account {
-  order: 4;
-}
-.button.firstaccbtn {
-  margin-left: 20px;
-}
+
 @media only screen and (max-width: 600px) {
   .topnav {
     flex-wrap: wrap;
     height: auto;
   }
-
+  .topnav-brand img {
+    width: 120px;
+  }
+  .topnavL {
+    margin-left: 0px;
+  }
+  .topnavR {
+    float: right;
+    margin-left: 25%;
+    margin-bottom: 0px;
+  }
   .topnav a {
     flex-grow: 1;
+    margin-left: 45px;
+    font-size: 17px;
   }
 
   .search {
-    order: 4;
     margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .account {
-    order: 3;
   }
 
   .topnav-brand {
@@ -96,6 +111,9 @@ button img {
 
   .topnav a.active {
     order: 2;
+  }
+  .search input {
+    font-size: 17px;
   }
 }
 .gridBody {
@@ -118,6 +136,7 @@ button img {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 16px;
     max-width: 100%;
+    max-height: 100%;
   }
 }
 .gridItem {
@@ -125,7 +144,9 @@ button img {
   border: 2px dashed rgba(255, 255, 255, 0.2);
   padding: 10px;
   max-width: 100%;
+  max-height: 100%;
   aspect-ratio: 1 / 1 !important;
+  font-size: 1.2rem;
 }
 .gridItem img {
   aspect-ratio: 16/9;
@@ -278,7 +299,7 @@ input:-webkit-autofill:active {
   padding: 15px 70px;
 }
 .account button {
-  font-size: 17px;
+  font-size: 23px;
   background-color: #222222;
   color: white;
   padding: 13px 35px;
@@ -286,6 +307,11 @@ input:-webkit-autofill:active {
   border: none;
   cursor: pointer;
   width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .account button {
+    font-size: 17px;
+  }
 }
 button:hover {
   color: rgb(161, 161, 161);

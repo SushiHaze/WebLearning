@@ -2,12 +2,6 @@ window.onload = function () {
   var button = document.getElementById("btnFind");
   button.innerHTML = '<img src="sources/searchIcn.png">';
 };
-var modal = document.getElementById("id01");
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
 const gridItems = document.querySelectorAll("#card1");
 gridItems.forEach((item) => {
   item.addEventListener("click", (event) => {
@@ -44,11 +38,11 @@ function search() {
     alert("Sorry, the search term was not found.");
   }
 }
-// НЕ РАБОТАЕТ Я ХЗ
-var input = document.getElementById("search");
-input.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    search();
-  }
-});
+// // НЕ РАБОТАЕТ Я ХЗ
+// var input = document.getElementById("search");
+// input.addEventListener("keyup", function (event) {
+//   if (event.keyCode === 13) {
+//     event.preventDefault();
+//     search();
+//   }
+// });
