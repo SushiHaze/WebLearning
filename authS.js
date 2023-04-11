@@ -1,101 +1,52 @@
+const express = require("express");
 const mysql = require("mysql");
-const http = require("http");
-const url = require("url");
-const fs = require("fs");
 
-// Создаем соединение с базой данных
-const connection = mysql.createConnection({
-  host: "localhost",
+// Создаем подключение к базе данных
+const db = mysql.createConnection({
+  host: "77.222.58.149",
+  user: "sushi",
+  password: "SquadronDB",
+  database: "squadrondb",
   port: "3306",
-  user: "root",
-  password: "mypass123",
-  database: "SquadronDB",
 });
 
-// Функция для проверки аутентификации пользователя
-function authenticateUser(username, password, callback) {
-  // Выбираем пользователя из базы данных
-  connection.query(
-    `SELECT * FROM users WHERE username = '${username}'`,
-    (error, results, fields) => {
-      if (error) {
-        console.error("Error selecting user: " + error.stack);
-        return callback(error);
-      }
+// Проверяем, что мы успешно подключились к базе данных
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log("Connected to database");
+});
 
-      if (results.length === 0) {
-        // Если пользователь не найден
-        return callback(null, false, "User not found");
-      }
+// Создаем экземпляр Express.js приложения
+const app = express();
 
-      // Проверяем пароль пользователя
-      const user = results[0];
-      if (password === user.password) {
-        // Если пароль верный, то аутентификация прошла успешно
-        return callback(null, true, user);
-      } else {
-        // Если пароль неверный
-        return callback(null, false, "Invalid password");
-      }
+// Разрешаем использование статических файлов из папки public
+app.use(express.static("public"));
+
+// Обработчик GET-запроса на /auth
+app.get("/auth", (req, res) => {
+  const url = `${req.protocol}://${req.hostname}:${app.get("port")}`;
+  console.log(`Server running at ${url}`);
+  const { uname, psw } = req.query;
+  console.log(`Login: ${uname}, Password: ${psw}`); // Выводим в консоль отладки
+  // Выполняем запрос к базе данных, чтобы найти пользователя с таким логином и паролем
+  const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
+  db.query(sql, [uname, psw], (err, results) => {
+    if (err) {
+      throw err;
     }
-  );
-}
-
-// Создаем HTTP сервер
-http
-  .createServer((req, res) => {
-    const urlObj = url.parse(req.url, true);
-
-    // Отдаем статические файлы, если URL начинается с /public/
-    if (urlObj.pathname.startsWith("/public/")) {
-      fs.readFile(`.${urlObj.pathname}`, (err, data) => {
-        if (err) {
-          res.writeHead(404, { "Content-Type": "text/plain" });
-          res.end("File not found");
-        } else {
-          res.writeHead(200);
-          res.end(data);
-        }
-      });
-      return;
+    if (results.length > 0) {
+      // Если пользователь найден, отправляем статус 200 (OK) и сообщение об успешной аутентификации
+      res.status(200).send("Authenticated");
+    } else {
+      // Если пользователь не найден, отправляем статус 401 (Unauthorized) и сообщение об ошибке
+      res.status(401).send("Invalid username or password");
     }
-
-    // Проверяем URL запроса на аутентификацию пользователя
-    if (urlObj.pathname === "/auth") {
-      const username = urlObj.query.uname;
-      const password = urlObj.query.psw;
-
-      // Проверяем аутентификацию пользователя
-      authenticateUser(username, password, (error, authenticated, user) => {
-        if (error) {
-          res.writeHead(500, { "Content-Type": "text/plain" });
-          res.end("Internal server error");
-          return;
-        }
-
-        // В зависимости от результата аутентификации отправляем соответствующий ответ
-        if (authenticated) {
-          res.writeHead(200, { "Content-Type": "text/plain" });
-          res.end(`Welcome, ${user.name}!`);
-        } else {
-          res.writeHead(401, { "Content-Type": "text/plain" });
-          res.end("Authentication failed: " + user);
-        }
-      });
-      return;
-    }
-
-    // Возвращаем страницу
-    fs.readFile("./index.html", (err, data) => {
-      if (err) {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("File not found");
-      } else {
-        res.writeHead(200);
-        res.end(data);
-      }
-    });
-  })
-  .listen(8080, () => {
-    console.log("Server listening on port 8080");
   });
+});
+
+// Запускаем сервер на порте 3000
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});

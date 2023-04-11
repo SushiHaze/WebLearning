@@ -1,30 +1,34 @@
-//// КЛИЕНТСКАЯ ЧАСТЬ////
+document.addEventListener("DOMContentLoaded", function () {
+  var loginForm = document.querySelector("#id01 form");
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var username = document.querySelector("input[name=uname]").value;
+    var password = document.querySelector("input[name=psw]").value;
 
-// Обработчик события submit для формы авторизации
-document.querySelector("form").addEventListener("submit", (event) => {
-  event.preventDefault(); // Отменяем перезагрузку страницы
-  const username = document.querySelector('input[name="uname"]').value;
-  const password = document.querySelector('input[name="psw"]').value;
-  // Отправляем запрос на сервер для аутентификации пользователя
-  fetch(`http://localhost:8080/auth?uname=${username}&psw=${password}`)
-    .then((response) => {
-      if (response.ok) {
-        // Если пользователь аутентифицирован, перенаправляем его на главную страницу
-        window.location.replace("/about.html");
-      } else {
-        // Если пользователь не аутентифицирован, выводим сообщение об ошибке
-        const errorMessage = document.querySelector(".error-message");
-        errorMessage.textContent = "Invalid username or password";
-        errorMessage.style.display = "block";
-      }
-    })
-    .catch((error) => {
-      console.error("Error authenticating user:", error);
-    });
-});
+    var data = {
+      username: username,
+      password: password,
+    };
 
-// Обработчик события click для кнопки "Cancel"
-document.querySelector(".cancelbtn").addEventListener("click", () => {
-  // Закрываем попап
-  document.getElementById("id01").style.display = "none";
+    var url = "http://localhost:3000/auth";
+
+    fetch(url + "?" + new URLSearchParams(data), { method: "GET" })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.success) {
+          alert("Logged in successfully");
+        } else {
+          var error = document.querySelector(".error-message");
+          error.style.display = "block";
+        }
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+      });
+  });
 });
