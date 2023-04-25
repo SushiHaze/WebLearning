@@ -7,6 +7,8 @@
     <title>Squadron</title>
     <link rel="stylesheet" href="ui.css" />
     <script src="script.js"></script>
+    <script src="getCards.php"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -24,7 +26,6 @@
       sizes="16x16"
       href="logo/favicon-16x16.png"
     />
-    <script src="auth.js"></script>
   </head>
   <body>
     <div class="page">
@@ -44,15 +45,21 @@
           </div>
           <div class="account">
             <button
+              id="accountButton"
               class="firstaccbtn"
               onclick="document.getElementById('id01').style.display='block'"
               style="width: auto"
             >
               Account
             </button>
+            <div class="accountInfo" id="accountInfo">
+              <p id="username"></p>
+              <p id="roles"></p>
+              <img id="userIcon" src="" alt="User icon" class="user-icon" />
+            </div>
 
             <div id="id01" class="modal">
-              <form class="modal-content animate" action="auth.js">
+              <form class="modal-content animate">
                 <div class="imgcontainer">
                   <span
                     onclick="document.getElementById('id01').style.display='none'"
@@ -82,30 +89,26 @@
                     name="psw"
                     required
                   />
-
-                  <button type="submit">Login</button>
+                  <div class="actionBtn">
+                    <button type="button" id="loginButton">login</button>
+                    <button type="button" id="registrationButton">
+                      Registration
+                    </button>
+                  </div>
+                  <div id="message"></div>
                   <label>
                     <input type="checkbox" checked="checked" name="remember" />
                     Remember me
                   </label>
                 </div>
-
-                <div class="container">
-                  <button
-                    type="button"
-                    onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn"
-                  >
-                    Cancel
-                  </button>
-                </div>
               </form>
             </div>
+            <script src="authClient.js"></script>
           </div>
         </div>
       </div>
       <div class="grid">
-        <div class="gridBody">
+        <div class="gridBody" id="gridBody">
           <div id="card1" class="gridItem">
             <a href="aircrafts/F18.html" class="card-link">
               <img class="cardImg" src="cards/f18.jpg" alt="aircraftImg" />
@@ -252,7 +255,19 @@
               </p>
             </a>
           </div>
+          <script src="ctrlAdmin.js"></script>
         </div>
+      </div>
+      <div class="chat">
+        <h1>chat</h1>
+        <select>
+          <option value="dialogue1">Диалог 1</option>
+          <option value="dialogue2">Диалог 2</option>
+          <option value="dialogue3">Диалог 3</option>
+        </select>
+        <p>serverl</p>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>send</button>
       </div>
       <footer class="footer">
         <p>

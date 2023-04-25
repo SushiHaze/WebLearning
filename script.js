@@ -1,7 +1,7 @@
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
   var button = document.getElementById("btnFind");
   button.innerHTML = '<img src="sources/searchIcn.png">';
-};
+});
 const gridItems = document.querySelectorAll("#card1");
 gridItems.forEach((item) => {
   item.addEventListener("click", (event) => {
@@ -10,6 +10,7 @@ gridItems.forEach((item) => {
     }
   });
 });
+
 function search() {
   var searchTerm = document.getElementById("search").value.toLowerCase();
   if (
@@ -38,6 +39,46 @@ function search() {
     alert("Sorry, the search term was not found.");
   }
 }
+
+let xhr = new XMLHttpRequest();
+
+xhr.open("GET", "getCards.php", true);
+
+xhr.send();
+
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      try {
+        let cardsData = JSON.parse(xhr.responseText);
+
+        let gridBody = document.querySelector(".gridBody");
+
+        cardsData.forEach(function (card) {
+          let cardHTML = `
+            <div id="${card.id}" class="gridItem">
+              <a href="${card.link}" class="card-link">
+                <img class="cardImg" src="${card.image}" alt="aircraftImg" />
+                <h3>${card.title}</h3>
+                <p class="mainInfoCard">${card.info}</p>
+                <p class="designedBy">${card.designer}<button class="button">Add</button></p>
+              </a>
+            </div>
+          `;
+          gridBody.insertAdjacentHTML("beforeend", cardHTML);
+        });
+      } catch (e) {
+        console.error("Error parsing JSON response: ", e);
+      }
+    } else {
+      console.error(
+        "Error getting data from server. Status code: ",
+        xhr.status
+      );
+    }
+  }
+};
+
 // // НЕ РАБОТАЕТ Я ХЗ
 // var input = document.getElementById("search");
 // input.addEventListener("keyup", function (event) {

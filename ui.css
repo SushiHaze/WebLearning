@@ -26,11 +26,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 .topnavR {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-right: 3%;
+  height: 100%;
 }
 .topnav a {
   color: #f2f2f2;
@@ -47,7 +50,7 @@ body {
 .topnav-brand img {
   width: 200px;
   margin-top: 5px;
-  margin-right: 50px !important;
+  margin-right: 50px;
 }
 .topnav a:hover {
   color: rgb(161, 161, 161);
@@ -74,28 +77,51 @@ button img {
   box-shadow: none;
   border-color: #222222;
   border: #222222;
+  margin-right: 50px;
+  color: #222222;
+}
+.account img {
+  width: 40px;
+  border-radius: 100%;
+  margin-left: 15%;
+}
+.account p {
+  margin-right: 20px;
+  max-width: 60%;
+  color: #7496f3;
+}
+.accountInfo {
+  display: none;
+}
+#roles {
+  font-size: 8px;
 }
 
 @media only screen and (max-width: 600px) {
   .topnav {
     flex-wrap: wrap;
     height: auto;
+    max-height: 100%;
   }
   .topnav-brand img {
     width: 120px;
+    margin-right: 0px;
   }
   .topnavL {
-    margin-left: 0px;
+    margin-left: 10%;
+    height: 45px;
   }
   .topnavR {
     float: right;
-    margin-left: 25%;
+    margin-left: 10%;
     margin-bottom: 0px;
+    height: 45px;
   }
   .topnav a {
     flex-grow: 1;
-    margin-left: 45px;
+    margin-left: 0px;
     font-size: 17px;
+    margin-right: 55px;
   }
 
   .search {
@@ -119,11 +145,36 @@ button img {
     padding-top: 0px;
     padding-bottom: 0px;
   }
+  .account img {
+    margin-left: 0%;
+  }
+  #roles {
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .topnavL {
+    margin-left: 7%;
+  }
+  .topnavR {
+    margin-left: 5%;
+  }
+  .search {
+    width: 10%;
+    margin-left: 15px;
+  }
+  .account p {
+    margin-right: 0px;
+  }
+  .search button {
+    margin-left: 30px;
+    margin-right: 20px;
+  }
 }
 .gridBody {
   display: grid;
   margin: 10px 50px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   grid-gap: 16px;
 }
 .card-link {
@@ -266,6 +317,20 @@ button img {
     width: 50vh;
   }
 }
+.chat {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+}
+.chat select {
+  width: 200px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(arrow.svg) no-repeat right center;
+}
 .footer {
   margin-top: auto;
 }
@@ -356,6 +421,9 @@ span.psw {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   padding-top: 60px;
+}
+.actionBtn {
+  display: flex;
 }
 
 .modal-content {
