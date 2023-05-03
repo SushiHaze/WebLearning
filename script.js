@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 //uiUx//
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("btnFind");
   button.innerHTML = '<img src="../sources/searchIcn.png">';
-=======
-document.addEventListener("DOMContentLoaded", function () {
-  var button = document.getElementById("btnFind");
-  button.innerHTML = '<img src="sources/searchIcn.png">';
->>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
 });
 const gridItems = document.querySelectorAll("#card1");
 gridItems.forEach((item) => {
@@ -25,10 +19,7 @@ gridItems.forEach((item) => {
   });
 });
 
-<<<<<<< HEAD
 //search//
-=======
->>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
 function search() {
   var searchText = document.getElementById("search").value;
 
@@ -136,7 +127,6 @@ function checkRolesAndDisplayButton() {
   }
 }
 
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
   checkRolesAndDisplayButton();
 });
@@ -173,52 +163,3 @@ document.addEventListener("DOMContentLoaded", function () {
     openChatBtn.style.display = "none";
   });
 });
-=======
-let xhr = new XMLHttpRequest();
-
-xhr.open("GET", "getCards.php", true);
-
-xhr.send();
-
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    if (xhr.status === 200) {
-      try {
-        let cardsData = JSON.parse(xhr.responseText);
-
-        let gridBody = document.querySelector(".gridBody");
-
-        cardsData.forEach(function (card) {
-          let cardHTML = `
-            <div id="${card.id}" class="gridItem">
-              <a href="${card.link}" class="card-link">
-                <img class="cardImg" src="${card.image}" alt="aircraftImg" />
-                <h3>${card.title}</h3>
-                <p class="mainInfoCard">${card.info}</p>
-                <p class="designedBy">${card.designer}<button class="button">Add</button></p>
-              </a>
-            </div>
-          `;
-          gridBody.insertAdjacentHTML("beforeend", cardHTML);
-        });
-      } catch (e) {
-        console.error("Error parsing JSON response: ", e);
-      }
-    } else {
-      console.error(
-        "Error getting data from server. Status code: ",
-        xhr.status
-      );
-    }
-  }
-};
-
-// // НЕ РАБОТАЕТ Я ХЗ
-// var input = document.getElementById("search");
-// input.addEventListener("keyup", function (event) {
-//   if (event.keyCode === 13) {
-//     event.preventDefault();
-//     search();
-//   }
-// });
->>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
