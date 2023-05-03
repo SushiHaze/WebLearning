@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chatWindow</title>
+  </head>
+  <style>
+    body {
+      color: #e4e4e4 !important;
+      background-color: #222222;
+      display: grid;
+      justify-self: center;
+      align-self: end;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 8% 8% 20% 65%;
+      overflow-y: hidden;
+      width: 300px;
+      height: 450px;
+    }
+    h2 {
+      grid-column-start: 2;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      width: 80%;
+    }
+    h3 {
+      grid-column-start: 2;
+      margin-top: 0px;
+      margin-bottom: 2px;
+    }
+    textarea {
+      width: 198%;
+      height: 100%;
+      resize: none;
+      grid-column: 1 / span 2;
+      background-color: #222222;
+      border: none;
+      color: #e4e4e4;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+    }
+    textarea:focus {
+      outline: none;
+    }
+    #all_mess {
+      margin-top: 5%;
+      grid-column: 1 / span 2;
+      overflow-y: scroll;
+      color: #ffffff;
+    }
+    input {
+      margin-left: 145%;
+      position: relative;
+      background-color: #7496f30e;
+      border: none;
+      color: #ffffff;
+      width: 70px;
+      height: 30px;
+      text-align: center;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2d2d2d;
+    }
+
+    /* ::-webkit-scrollbar-thumb {
+      
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      
+    } */
+  </style>
+  <body>
+    <h2>SquadronChat</h2>
+    <h3>communication:</h3>
+    <form id="messForm">
+      <textarea name="message" id="message"></textarea>
+      <input type="submit" value="send" />
+    </form>
+    <div id="all_mess"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module">
+      $(function () {
+        const socket = io.connect();
+        const $form = $("#messForm");
+        const $textarea = $("#message");
+        const $all_messages = $("#all_mess");
+
+        $form.submit(function (event) {
+          event.preventDefault();
+          const message = $textarea.val();
+          socket.emit("send mess", {
+            mess: $textarea.val(),
+          });
+          $textarea.val("");
+        });
+
+        socket.on("add mess", function (data) {
+          $all_messages.append("<div>" + data.mess + "</div>");
+        });
+      });
+    </script>
+  </body>
+</html>
