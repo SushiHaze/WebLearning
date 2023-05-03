@@ -8,7 +8,7 @@ registrationButton.addEventListener("click", registerUser);
 
 function loginUser() {
   const xhr = new XMLHttpRequest();
-  const url = "http://localhost:5000/auth/login";
+  const url = "https://squadron.tech//auth/login";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
@@ -75,7 +75,7 @@ function logoutUser() {
 
 function registerUser() {
   const xhr = new XMLHttpRequest();
-  const url = "http://localhost:5000/auth/registration";
+  const url = "https://squadron.tech//auth/registration";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
@@ -104,7 +104,7 @@ function setAuthHeader(xhr) {
 
 document.getElementById("loginButton").addEventListener("click", function () {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:5000/auth/login");
+  xhr.open("POST", "https://squadron.tech//auth/login");
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhr.onload = function () {
     if (xhr.status === 200) {
