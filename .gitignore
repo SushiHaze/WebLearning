@@ -1,2 +1,3 @@
 /sql/*
 /node_modules/*
+.htacces*

@@ -1,10 +1,10 @@
 {
-  "name": "project-ebani-vrot",
+  "name": "chat",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "index.js & chat.js",
   "scripts": {
-    "start": "nodemon ./auth/index.js"
+    "start": "nodemon ./auth/index.js",
+    "start": "nodemon ./chat/chat.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,9 @@
     "express-validator": "^6.15.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
-    "nodemon": "^2.0.22"
-  }
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {},
+  "description": ""
 }

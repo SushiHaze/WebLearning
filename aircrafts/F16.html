@@ -4,25 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Squadron</title>
+    <title>F-16</title>
     <link rel="stylesheet" href="../ui.css" />
-    <script src="../script.js"></script>
+
+    <script src="../getCards.php"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../logo/apple-touch-icon.png"
+      href="../sources/logo/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../logo/favicon-32x32.png"
+      href="../sources/logo/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../logo/favicon-16x16.png"
+      href="../sources/logo/favicon-16x16.png"
     />
   </head>
   <body>
@@ -32,22 +35,32 @@
           <a class="topnav-brand" href="/">
             <img src="../sources/Squadron.png" alt="logo" />
           </a>
-
-          <a class href="../index.html">Air</a>
+          <a  href="../index.html">Air</a>
           <a class="active" href="../about.html">About</a>
         </div>
         <div class="topnavR">
+          <div class="search">
+            <input type="text" id="search" placeholder="Search..." />
+            <button id="btnFind" onclick="search()">Go</button>
+            <a id="result" href=""></a>
+          </div>
           <div class="account">
             <button
+              id="accountButton"
               class="firstaccbtn"
               onclick="document.getElementById('id01').style.display='block'"
               style="width: auto"
             >
               Account
             </button>
+            <div class="accountInfo" id="accountInfo">
+              <p id="username"></p>
+              <p id="roles"></p>
+              <img id="userIcon" src="" alt="User icon" class="user-icon" />
+            </div>
 
             <div id="id01" class="modal">
-              <form class="modal-content animate" action="auth.js" method="GET">
+              <form class="modal-content animate">
                 <div class="imgcontainer">
                   <span
                     onclick="document.getElementById('id01').style.display='none'"
@@ -55,11 +68,10 @@
                     title="Close Modal"
                     >×</span
                   >
-                  <img
-                    src="../sources/Squadron.png"
-                    alt="Avatar"
-                    class="avatar"
-                  />
+                  <img src="../sources/Squadron.png" alt="Avatar" class="avatar" />
+                  <div class="error-message" style="display: none">
+                    Ошибка: неверный логин или пароль
+                  </div>
                 </div>
 
                 <div class="container">
@@ -78,29 +90,27 @@
                     name="psw"
                     required
                   />
-
-                  <button type="submit">Login</button>
+                  <div class="actionBtn">
+                    <button type="button" id="loginButton">login</button>
+                    <button type="button" id="registrationButton">
+                      Registration
+                    </button>
+                  </div>
+                  <div id="message"></div>
                   <label>
                     <input type="checkbox" checked="checked" name="remember" />
                     Remember me
                   </label>
                 </div>
-
-                <div class="container">
-                  <button
-                    type="button"
-                    onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn"
-                  >
-                    Cancel
-                  </button>
-                </div>
               </form>
             </div>
           </div>
         </div>
-        <script src="auth.js"></script>
       </div>
+
+      <script type="module" src="../authClient.js"></script>
+      <script src="../script.js"></script>
+     
       <div class="aboutAircraft">
         <img src="../cards/f16.jpg" alt="meImg" />
         <h1>F-16 Fighting Falcon</h1>
@@ -109,10 +119,10 @@
           air-to-air and air-to-ground combat
         </p>
         <ul>
-          <li>Чебурашка</li>
-          <li>Крокодил Гена</li>
-          <li>Шапокляк</li>
-          <li>Крыса Лариса</li>
+          <li>-</li>
+          <li>-</li>
+          <li>-</li>
+          <li>-</li>
         </ul>
         <p class="gen">generation: 4</p>
         <p class="designedByMain">
@@ -120,6 +130,20 @@
           <button class="button">Add</button>
         </p>
       </div>
+      
+          <script src="../ctrlAdmin.js"></script>
+        </div>
+      </div>
+      <button class="button" id="openChat">Chat</button>
+      <div class="popup" id="chatPopup" style="display: none">
+        <iframe
+          src="http://localhost:3000/"
+          width="100%"
+          height="100%"
+        ></iframe>
+        <button class="button" id="closeChat">close</button>
+      </div>
+
       <footer class="footer">
         <p>
           В соответствии с действующим законодательством Российской Федерации
