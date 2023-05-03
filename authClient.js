@@ -15,7 +15,10 @@ function loginUser() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
+<<<<<<< HEAD
         const username = localStorage.getItem("username");
+=======
+>>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
         localStorage.setItem("token", response.token);
         localStorage.setItem("roles", response.roles);
         localStorage.setItem("username", response.username);
@@ -23,7 +26,11 @@ function loginUser() {
         document.getElementById("accountInfo").style.display = "flex";
         document.getElementById(
           "userIcon"
+<<<<<<< HEAD
         ).src = `../sources/${response.roles}.png`;
+=======
+        ).src = `sources/${response.roles}.png`;
+>>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
         const usernameElement = document.getElementById("username");
         const rolesElement = document.getElementById("roles");
         rolesElement.style.fontSize = "8px";
@@ -50,11 +57,18 @@ function loginUser() {
 window.onload = function () {
   const token = localStorage.getItem("token");
   const roles = localStorage.getItem("roles");
+<<<<<<< HEAD
 
   if (token) {
     document.getElementById("accountButton").style.display = "none";
     document.getElementById("accountInfo").style.display = "flex";
     document.getElementById("userIcon").src = `../sources/${roles}.png`;
+=======
+  if (token) {
+    document.getElementById("accountButton").style.display = "none";
+    document.getElementById("accountInfo").style.display = "flex";
+    document.getElementById("userIcon").src = `sources/${roles}.png`;
+>>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
     document.getElementById("username").textContent =
       localStorage.getItem("username");
     document.getElementById("roles").textContent = `(${localStorage.getItem(
@@ -101,6 +115,7 @@ function setAuthHeader(xhr) {
     xhr.setRequestHeader("Authorization", `Bearer ${token}`);
   }
 }
+<<<<<<< HEAD
 
 document.getElementById("loginButton").addEventListener("click", function () {
   var xhr = new XMLHttpRequest();
@@ -122,3 +137,23 @@ document.getElementById("loginButton").addEventListener("click", function () {
   });
   xhr.send(data);
 });
+=======
+// function getData() {
+//   const xhr = new XMLHttpRequest();
+//   const url = "http://localhost:5000/data";
+//   xhr.open("GET", url, true);
+//   setAuthHeader(xhr); // добавляем заголовок авторизации
+//   xhr.onreadystatechange = function () {
+//     if (xhr.readyState === 4) {
+//       if (xhr.status === 200) {
+//         const response = JSON.parse(xhr.responseText);
+//         // обработка данных
+//       } else {
+//         const response = JSON.parse(xhr.responseText);
+//         window.alert(response.message);
+//       }
+//     }
+//   };
+//   xhr.send();
+// }
+>>>>>>> 1c00ac41673642614db6d3ba76c87c99b732780f
