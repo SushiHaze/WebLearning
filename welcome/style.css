@@ -13,7 +13,23 @@ body {
 body {
   font-family: "Open sans", sans-serif;
 }
+::-webkit-scrollbar {
+  width: 12px;
+}
 
+::-webkit-scrollbar-track {
+  background: #363636;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #454545;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -39,7 +55,7 @@ body {
   left: 0;
 }
 .space {
-  background: url("space.png") 0 0 / cover no-repeat;
+  background: url("spaceopt.jpg") 0 0 / cover no-repeat;
 }
 .parallax__mountain_2 {
   background: url("m1.png") bottom right / 50% no-repeat;
@@ -47,7 +63,7 @@ body {
   pointer-events: none;
 }
 .parallax__mountain_3 {
-  background: url("m2.png") bottom left / 70% no-repeat;
+  background: url("m2opt.png") bottom left / 70% no-repeat;
   z-index: 1;
 }
 
